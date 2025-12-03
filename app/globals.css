@@ -1,27 +1,12 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --christmas-red: #D42426;
+  --christmas-green: #165B33;
+  --christmas-gold: #F8B229;
+  --snow-white: #F0F4F8;
+  --dark-green: #0F2F22;
+  --text-color: #2C3E50;
+  --card-bg: #FFFFFF;
+  --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 * {
@@ -30,13 +15,60 @@ body {
   margin: 0;
 }
 
+body {
+  background-color: var(--dark-green);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--christmas-red);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  background-color: #b91c1e;
+}
+
+.btn-secondary {
+  background-color: var(--christmas-gold);
+  color: var(--dark-green);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  background-color: #e5a322;
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-family: 'Georgia', serif; /* Fallback for a more classic feel if custom font fails */
 }

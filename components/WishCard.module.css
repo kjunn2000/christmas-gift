@@ -1,0 +1,79 @@
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  border-top: 5px solid var(--christmas-red);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.avatar {
+  background: var(--snow-white);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  border: 2px solid var(--christmas-gold);
+}
+
+.emoji {
+  font-size: 1.5rem;
+}
+
+.name {
+  font-family: var(--font-christmas), serif;
+  font-size: 1.5rem;
+  color: var(--christmas-green);
+}
+
+.body {
+  flex-grow: 1;
+}
+
+.wishText {
+  font-family: var(--font-poppins), sans-serif;
+  font-style: italic;
+  color: #555;
+  line-height: 1.5;
+  position: relative;
+  padding: 0 10px;
+}
+
+.quote {
+  color: var(--christmas-gold);
+  font-size: 2rem;
+  line-height: 0;
+  vertical-align: -10px;
+  margin: 0 5px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: auto;
+}
+
+.icon {
+  color: var(--christmas-red);
+}
