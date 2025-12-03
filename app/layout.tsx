@@ -3,6 +3,7 @@ import { Mountains_of_Christmas, Poppins } from "next/font/google";
 import "./globals.css";
 import Snowfall from "@/components/Snowfall";
 import { WishProvider } from "@/context/WishContext";
+import AuthWrapper from "@/components/AuthWrapper";
 
 const christmasFont = Mountains_of_Christmas({
   weight: ["400", "700"],
@@ -30,10 +31,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${christmasFont.variable} ${poppins.variable}`}>
         <WishProvider>
-          <Snowfall />
-          <main className="container">
-            {children}
-          </main>
+          <AuthWrapper>
+            <Snowfall />
+            <main className="container">
+              {children}
+            </main>
+          </AuthWrapper>
         </WishProvider>
       </body>
     </html>

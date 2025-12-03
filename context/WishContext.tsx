@@ -13,17 +13,25 @@ export interface Wish {
 interface WishContextType {
     wishes: Wish[];
     addWish: (wish: Omit<Wish, 'id' | 'createdAt'>) => void;
+    isUnlocked: boolean;
+    unlockApp: (key: string) => boolean;
 }
 
 const WishContext = createContext<WishContextType | undefined>(undefined);
 
 export const WishProvider = ({ children }: { children: React.ReactNode }) => {
     const [wishes, setWishes] = useState<Wish[]>([]);
+    const [isUnlocked, setIsUnlocked] = useState(false);
 
     useEffect(() => {
         const storedWishes = localStorage.getItem('christmas-wishes');
         if (storedWishes) {
             setWishes(JSON.parse(storedWishes));
+        }
+
+        const unlockedSession = sessionStorage.getItem('christmas-unlocked');
+        if (unlockedSession === 'true') {
+            setIsUnlocked(true);
         }
     }, []);
 
@@ -38,8 +46,17 @@ export const WishProvider = ({ children }: { children: React.ReactNode }) => {
         localStorage.setItem('christmas-wishes', JSON.stringify(updatedWishes));
     };
 
+    const unlockApp = (key: string) => {
+        if (key === 'moneymoneyhome') {
+            setIsUnlocked(true);
+            sessionStorage.setItem('christmas-unlocked', 'true');
+            return true;
+        }
+        return false;
+    };
+
     return (
-        <WishContext.Provider value={{ wishes, addWish }}>
+        <WishContext.Provider value={{ wishes, addWish, isUnlocked, unlockApp }}>
             {children}
         </WishContext.Provider>
     );
